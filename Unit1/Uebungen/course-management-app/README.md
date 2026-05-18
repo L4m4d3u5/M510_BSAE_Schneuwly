@@ -111,9 +111,9 @@ Diese App ist **bewusst nicht vollständig**. Die folgenden Features sind NICHT 
 
 ### Level 1 - Einfach
 
-1. Suchfeld für Kurse hinzufügen
-2. Filterfunktion nach Kursstatus
-3. Teilnehmerzahl pro Kurs auf dem Dashboard anzeigen
+1. Suchfeld für Kurse hinzufügen --> Done
+2. Filterfunktion nach Kursstatus --> Done
+3. Teilnehmerzahl pro Kurs auf dem Dashboard anzeigen --> Done
 
 ### Level 2 - Mittelschwer
 
