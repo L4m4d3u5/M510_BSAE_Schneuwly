@@ -1,9 +1,9 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
-import Dashboard from './pages/Dashboard.tsx'
-import Courses from './pages/Courses.tsx'
-import Participants from './pages/Participants.tsx'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import Dashboard from './pages/Dashboard.tsx';
+import Courses from './pages/Courses.tsx';
+import Participants from './pages/Participants.tsx';
+import './App.css';
 
 function App(): React.ReactElement {
   return (
@@ -19,7 +19,7 @@ function App(): React.ReactElement {
         </main>
       </div>
     </Router>
-  )
+  );
 }
 
 function Sidebar(): React.ReactElement {
@@ -29,25 +29,25 @@ function Sidebar(): React.ReactElement {
       <nav>
         <ul className="nav-menu">
           <li className="nav-item">
-            <NavLink 
-              to="/" 
-              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               Dashboard
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink 
-              to="/courses" 
-              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            <NavLink
+              to="/courses"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               Kurse
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink 
-              to="/participants" 
-              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            <NavLink
+              to="/participants"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
             >
               Teilnehmende
             </NavLink>
@@ -55,7 +55,7 @@ function Sidebar(): React.ReactElement {
         </ul>
       </nav>
     </aside>
-  )
+  );
 }
 
-export default App
+export default App;
