@@ -22,7 +22,7 @@ function Participants(): React.ReactElement {
             </tr>
           </thead>
           <tbody>
-            {participantsData.map((participant) => (
+            {Object.values(participantsData).map((participant) => (
               <tr key={participant.id}>
                 <td>{participant.name}</td>
                 <td>{participant.email}</td>

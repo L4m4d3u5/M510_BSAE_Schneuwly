@@ -117,13 +117,13 @@ Diese App ist **bewusst nicht vollständig**. Die folgenden Features sind NICHT 
 
 ### Level 2 - Mittelschwer
 
-4. Detailseite für jeden Kurs erstellen (mit allen Teilnehmenden)
-5. Formular zum Hinzufügen neuer Kurse (mit useState)
-6. Löschen-Button für Kurse mit Bestätigung
+4. Detailseite für jeden Kurs erstellen (mit allen Teilnehmenden) --> Done
+5. Formular zum Hinzufügen neuer Kurse (mit useState) --> Done
+6. Löschen-Button für Kurse mit Bestätigung --> Done
 
 ### Level 3 - Fortgeschrittene
 
-7. LocalStorage verwenden, um Daten persistent zu speichern
+7. LocalStorage verwenden, um Daten persistent zu speichern --> Done
 8. Backend-Integration mit einer REST-API
 9. Teilnehmerstatus und weitere Informationen hinzufügen
 10. Erweiterte Filter und Sortierfunktionen

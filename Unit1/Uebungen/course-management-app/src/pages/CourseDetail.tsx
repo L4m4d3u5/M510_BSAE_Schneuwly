@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { coursesData, CourseStatus } from '../data/mockData';
+import { CourseStatus } from '../data/mockData';
+import { useCourses } from '../hooks/useCourses';
 
 const CourseDetail: React.FC = (): React.ReactElement => {
     const { id } = useParams<{ id: string }>();
-    const course = coursesData.find((c) => c.id === Number(id));
+    const { courses } = useCourses();
+    const course = courses.find((c) => c.id === Number(id));
+
     if (!course) {
         return (
             <div>
@@ -33,7 +36,8 @@ const CourseDetail: React.FC = (): React.ReactElement => {
             <div className="card" style={{ marginBottom: '30px' }}>
                 <div className="card-content">
                     <p>
-                        <strong>Datum:</strong> {new Date(course.date).toLocaleDateString('de-DE')}
+                        <strong>Datum:</strong>{' '}
+                        {new Date(course.date).toLocaleDateString('de-DE')}
                     </p>
                     <p style={{ marginTop: '8px' }}>
                         <strong>Status:</strong>{' '}
@@ -42,7 +46,6 @@ const CourseDetail: React.FC = (): React.ReactElement => {
                                 course.status === CourseStatus.ACTIVE
                                     ? 'badge badge-active'
                                     : 'badge badge-inactive'
-
                             }
                         >
                             {course.status === CourseStatus.ACTIVE ? 'Aktiv' : 'Inaktiv'}
