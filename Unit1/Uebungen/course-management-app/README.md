@@ -164,20 +164,19 @@ export const coursesData: Course[] = [
 
 ### Styling
 - Globale Styles befinden sich in `src/index.css`
-- typescript | ^5.3.2 | TypeScript Compiler |
-| vite | ^5.0.0 | Build-Tool und Dev-Server |
-| @types/react | ^18.2.37 | Type Definitions für React |
-| @types/react-dom | ^18.2.15 | Type Definitions für React DOMn verwenden
 - Farben: Primär `#3498db`, Akzent `#2c3e50`
 
 ## Wichtige Abhängigkeiten
 
-| Paket | Version | Zweck |
-|-------|---------|-------|
-| react | ^18.2.0 | React-Bibliothek |
-| react-dom | ^18.2.0 | React DOM-Rendering |
-| react-router-dom | ^6.20.0 | Routing zwischen Seiten |
-| vite | ^5.0.0 | Build-Tool und Dev-Server |
+| Paket            | Version  | Zweck                                     |
+|------------------|----------|-------------------------------------------|
+| typescript       | ^5.3.2   | TypeScript Compiler                       |
+| react            | ^18.2.0  | React-Bibliothek                          |
+| react-dom        | ^18.2.0  | React DOM-Rendering                       |
+| react-router-dom | ^6.20.0  | Routing zwischen Seiten                   |
+| vite             | ^5.0.0   | Build-Tool und Dev-Server                 |
+| @types/react     | ^18.2.37 | Type Definitions für React                |
+| @types/react-dom | ^18.2.15 | Type Definitions für React DOMn verwenden |
 
 ## Ziel dieser Anwendung
 
