@@ -1,22 +1,36 @@
-import { produkte } from './data/mockData'
+import { useEffect, useState } from 'react'
+import { Produkt, produkte } from './data/mockData'
+import Produkttabelle from './components/Table'
 
 export default function App() {
+
+  const [products, setProducts] = useState<Produkt[]>([])
+
+  useEffect(() => {
+    console.log('Produktbeispiel:', produkte[0])
+    setProducts(produkte)
+  }, [])
+
+  useEffect(() => {
+    console.log('Alle Produkte:', products)
+  }, [products])
   return (
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem' }}>
       <header style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.8rem', color: '#1565c0' }}>Lagerverwaltung</h1>
         <p style={{ color: '#666', marginTop: '0.25rem' }}>
-          {produkte.length} Produkte geladen · Übung: Tabelle mit Paginierung
+          {products.length} Produkte geladen · Übung: Tabelle mit Paginierung
         </p>
       </header>
 
       <main>
+        <Produkttabelle products={products} />
         {/*
          * ═══════════════════════════════════════════════════════════════════
          *  TODO: Implementiere hier eine Tabelle mit Paginierung
          * ═══════════════════════════════════════════════════════════════════
          *
-         * Die Produktdaten stehen in der Variable `produkte` zur Verfügung.
+         * Die Produktdaten stehen in der Variable `products` zur Verfügung.
          * Jedes Produkt hat folgende Felder:
          *
          *   id             – Eindeutige ID (number)
@@ -39,7 +53,7 @@ export default function App() {
          * Du kannst eine neue Komponente erstellen (z.B. src/components/Produkttabelle.tsx)
          * und sie hier einbinden.
          */}
-        <div
+        {/* <div
           style={{
             background: '#fff3cd',
             border: '2px dashed #ffc107',
@@ -55,7 +69,7 @@ export default function App() {
           <p style={{ marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Lies zuerst die Aufgabenstellung im <code>README.md</code>
           </p>
-        </div>
+        </div> */}
       </main>
     </div>
   )
