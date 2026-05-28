@@ -7,18 +7,21 @@ Dies ist eine einfache **interne Kursverwaltungs-App** für eine Bildungsorganis
 ## Features der aktuellen Version
 
 ### 🎯 Funktionalität
+
 - **Dashboard**: Übersichtsseite mit Statistiken und aktuelle Kurse
 - **Kurse**: Tabelle mit allen verfügbaren Kursen (Titel, Datum, Status)
 - **Teilnehmende**: Übersicht aller Teilnehmenden mit ihrem zugewiesenen Kurs
 - **Navigation**: Seitennavigation zur Orientierung
 
 ### 🎨 Benutzeroberfläche
+
 - Responsive Sidebar-Navigation
 - Klare Business-App-Struktur
 - Einfache Karten- und Tabellenansichten
 - Modernes, minimalistisches Design
 
 ### 📊 Beispieldaten
+
 - 5 Beispielkurse (teils aktiv, teils inaktiv)
 - 8 Beispielteilnehmende mit Kurszuweisungen
 - Alle Daten lokal im Code als JavaScript-Arrays
@@ -31,17 +34,19 @@ Dies ist eine einfache **interne Kursverwaltungs-App** für eine Bildungsorganis
 ✅ Vite als Build-Tool  
 ✅ Einfache, leserliche Codestruktur  
 ✅ Keine Backend-Anbindung (Mock-Daten)  
-✅ CSS mit moderner Struktur (Flexbox/Grid)  
+✅ CSS mit moderner Struktur (Flexbox/Grid)
 
 ## Installation und Start
 
 ### 1. Dependencies installieren
+
 ```bash
 cd course-management-app
 npm install
 ```
 
 ### 2. Entwicklungsserver starten
+
 ```bash
 npm run dev
 ```
@@ -49,6 +54,7 @@ npm run dev
 Die App öffnet sich auf `http://localhost:3000`
 
 ### 3. App bauen (für Produktion)
+
 ```bash
 npm run build
 ```
@@ -75,14 +81,19 @@ course-management-app/
 ```
 
 ## Code-Architektur
-tsx**: Router-Setup und globale Navigation
+
+tsx\*\*: Router-Setup und globale Navigation
+
 - **Dashboard.tsx**: Zeigt Statistiken und aktive Kurse an
 - **Courses.tsx**: Tabellenansicht aller Kurse
 - **Participants.tsx**: Tabellenansicht aller Teilnehmenden
 
 ### Daten
+
 - **mockData.ts**: Zentrale Beispieldaten mit TypeScript Interfaces (`Course`, `Participant`
+
 ### Daten
+
 - **mockData.js**: Zentrale Beispieldaten (einfach erweiterbar)
 
 ## Absichtliche Lücken (für Studierendenaufgaben)
@@ -94,22 +105,25 @@ Diese App ist **bewusst nicht vollständig**. Die folgenden Features sind NICHT 
 ❌ **Detailansichten**: Keine umfassenden Detailseiten für Kurse oder Teilnehmende  
 ❌ **Teilnehmerstatus**: Der Status von Teilnehmenden wird nicht angezeigt  
 ❌ **Statistiken**: Anzahl Teilnehmende pro Kurs wird nicht angezeigt  
-❌ **CRUD-Operationen**: Keine Möglichkeit, Kurse/Teilnehmende hinzuzufügen/zu bearbeiten/zu löschen  
+❌ **CRUD-Operationen**: Keine Möglichkeit, Kurse/Teilnehmende hinzuzufügen/zu bearbeiten/zu löschen
 
 ## Mögliche Erweiterungen für Studierende
 
 ### Level 1 - Einfach
-1. Suchfeld für Kurse hinzufügen
-2. Filterfunktion nach Kursstatus
-3. Teilnehmerzahl pro Kurs auf dem Dashboard anzeigen
+
+1. Suchfeld für Kurse hinzufügen --> Done
+2. Filterfunktion nach Kursstatus --> Done
+3. Teilnehmerzahl pro Kurs auf dem Dashboard anzeigen --> Done
 
 ### Level 2 - Mittelschwer
-4. Detailseite für jeden Kurs erstellen (mit allen Teilnehmenden)
-5. Formular zum Hinzufügen neuer Kurse (mit useState)
-6. Löschen-Button für Kurse mit Bestätigung
+
+4. Detailseite für jeden Kurs erstellen (mit allen Teilnehmenden) --> Done
+5. Formular zum Hinzufügen neuer Kurse (mit useState) --> Done
+6. Löschen-Button für Kurse mit Bestätigung --> Done
 
 ### Level 3 - Fortgeschrittene
-7. LocalStorage verwenden, um Daten persistent zu speichern
+
+7. LocalStorage verwenden, um Daten persistent zu speichern --> Done
 8. Backend-Integration mit einer REST-API
 9. Teilnehmerstatus und weitere Informationen hinzufügen
 10. Erweiterte Filter und Sortierfunktionen
@@ -117,12 +131,13 @@ Diese App ist **bewusst nicht vollständig**. Die folgenden Features sind NICHT 
 ## Code-Standards für Erweiterungen
 
 ### Komponenten-Struktur
+
 ```typescript
 import React from 'react'
 
 function MyComponent(): React.ReactElement {
   // Logik hier
-  
+
   return (
     <div>
       {/* JSX hier */}
@@ -134,18 +149,19 @@ export default MyComponent
 ```
 
 ### TypeScript Interfaces erweitern
+
 Neue Datenfelder in `src/data/mockData.ts` hinzufügen:
 
 ```typescript
 export interface Course {
-  id: number
-  title: string
-  date: string
-  status: 'active' | 'inactive'
-  description: string
+  id: number;
+  title: string;
+  date: string;
+  status: 'active' | 'inactive';
+  description: string;
   // Neue Felder hier hinzufügen
-  instructor?: string
-  capacity?: number
+  instructor?: string;
+  capacity?: number;
 }
 
 export const coursesData: Course[] = [
@@ -156,14 +172,19 @@ export const coursesData: Course[] = [
     status: 'active',
     description: '...',
     instructor: '...',
-    capacity: 30
-  }
+    capacity: 30,
+  },
   // ... weitere Kurse
-]
+];
 ```
 
 ### Styling
+
 - Globale Styles befinden sich in `src/index.css`
+- typescript | ^5.3.2 | TypeScript Compiler |
+  | vite | ^5.0.0 | Build-Tool und Dev-Server |
+  | @types/react | ^18.2.37 | Type Definitions für React |
+  | @types/react-dom | ^18.2.15 | Type Definitions für React DOMn verwenden
 - Farben: Primär `#3498db`, Akzent `#2c3e50`
 
 ## Wichtige Abhängigkeiten
@@ -190,6 +211,7 @@ Diese App ist kein vollständiges Produktivprodukt, sondern ein **Lernprojekt**.
 ## Support und Debugging
 
 ### App lädt nicht?
+
 ```bash
 # Dependencies neu installieren
 npm install
@@ -200,12 +222,14 @@ npm install
 ```
 
 ### Port 3000 bereits in Nutzung?
+
 ```bash
 # In vite.config.js den Port anpassen:
 # port: 3001
 ```
 
 ### Styling wird nicht angewendet?
+
 - Browser-Cache leeren (Ctrl+Shift+Delete)
 - Entwickler-Tools öffnen und Netzwerk-Tab prüfen
 
