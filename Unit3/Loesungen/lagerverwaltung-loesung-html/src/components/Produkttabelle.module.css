@@ -1,0 +1,188 @@
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  flex-wrap: wrap;
+}
+
+.suche {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+}
+.suche:focus {
+  border-color: #1565c0;
+  box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.15);
+}
+
+.info {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.warnung {
+  color: #c62828;
+  font-weight: 600;
+}
+
+/* ── Tabelle ─────────────────────────────────────────────────────────────── */
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: #fff;
+}
+
+.th {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  background: #1565c0;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+.th:hover {
+  background: #1976d2;
+}
+
+.sortPfeil {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.zeile td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+.zeile:nth-child(even) td {
+  background: #fafafa;
+}
+.zeile:hover td {
+  background: #e3f2fd;
+}
+
+/* Zeile bei Unterbestand */
+.zeileFehler td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ffcdd2;
+  background: #fff8f8;
+  vertical-align: middle;
+}
+.zeileFehler:hover td {
+  background: #ffebee;
+}
+
+.leer {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+}
+
+.zahl {
+  text-align: right;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #e3f2fd;
+  color: #1565c0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.standort {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: #555;
+  background: #f5f5f5;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+/* ── Paginierung ──────────────────────────────────────────────────────────── */
+.paginierung {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pagLinks,
+.pagRechts {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.pagLinks select {
+  margin-left: 0.25rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.pagMitte {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pagMitte button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+}
+.pagMitte button:hover:not(:disabled) {
+  background: #e3f2fd;
+  border-color: #1565c0;
+}
+.pagMitte button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.pagMitte button.aktiv {
+  background: #1565c0;
+  color: #fff;
+  border-color: #1565c0;
+  font-weight: 700;
+}

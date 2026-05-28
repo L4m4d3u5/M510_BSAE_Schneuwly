@@ -1,0 +1,322 @@
+/* =====================================================
+   App.css – Stile für Layout, Sidebar und Seiteninhalte
+   ===================================================== */
+
+/* ── App-Layout ─────────────────────────────────────── */
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+
+.sidebar {
+  width: 240px;
+  background-color: #1e293b;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+}
+
+.sidebar-icon {
+  font-size: 22px;
+}
+
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0 8px;
+}
+
+.nav-item {
+  margin: 2px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.nav-link.active {
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── Hauptinhalt ──────────────────────────────────────── */
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+/* ── Seitentitel ──────────────────────────────────────── */
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: #64748b;
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+
+/* ── Dashboard – Kennzahlenkarten ─────────────────────── */
+
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  min-width: 180px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.stat-card--warning {
+  border-left: 4px solid #ef4444;
+}
+
+.stat-icon {
+  font-size: 28px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ── Filter- und Suchbereich ──────────────────────────── */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 240px;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+}
+
+.filter-select {
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-select:focus {
+  border-color: #3b82f6;
+}
+
+.result-count {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ── Datentabelle ─────────────────────────────────────── */
+
+.table-wrapper {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background-color: #f8fafc;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Kritische Zeile – schwacher roter Hintergrund */
+.row-critical {
+  background-color: #fff5f5 !important;
+}
+
+.row-critical:hover {
+  background-color: #ffecec !important;
+}
+
+/* ── Hilfsstile für Tabellenzellen ────────────────────── */
+
+.text-mono {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+}
+
+.text-danger {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* ── Status-Badge ─────────────────────────────────────── */
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge--aktiv {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.status-badge--kritisch {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* ── Hinweisboxen ─────────────────────────────────────── */
+
+.info-box {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.info-box--warning {
+  background-color: #fff7ed;
+  border-left: 4px solid #f97316;
+  color: #9a3412;
+}
+
+.info-box--success {
+  background-color: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  color: #15803d;
+}
+
+/* ── Leere Tabelle ────────────────────────────────────── */
+
+.empty-message {
+  text-align: center;
+  padding: 32px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ── Einstellungsseite ────────────────────────────────── */
+
+.settings-section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.settings-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.settings-placeholder {
+  color: #64748b;
+  line-height: 1.6;
+}

@@ -1,0 +1,392 @@
+/* =====================================================
+   App.css – Stile für Layout, Sidebar und Seiteninhalte
+   ===================================================== */
+
+/* ── App-Layout ─────────────────────────────────────── */
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+
+.sidebar {
+  width: 240px;
+  background-color: #1e1b4b;  /* Tiefes Indigo – Musik-Thema */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+}
+
+.sidebar-icon {
+  font-size: 22px;
+}
+
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0 8px;
+}
+
+.nav-item {
+  margin: 2px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  color: #c7d2fe;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.nav-link.active {
+  background-color: #7c3aed;  /* Violett für aktiven Menüpunkt */
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── Hauptinhalt ──────────────────────────────────────── */
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+/* ── Seitentitel ──────────────────────────────────────── */
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: #64748b;
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+
+/* Seitenkopf: Titel links, Button rechts */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.page-header .page-subtitle {
+  margin-bottom: 0;
+}
+
+/* ── Dashboard – Kennzahlenkarten ─────────────────────── */
+
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  min-width: 180px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.stat-card--highlight {
+  border-left: 4px solid #7c3aed;
+}
+
+.stat-icon {
+  font-size: 28px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn--primary {
+  background-color: #7c3aed;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: #6d28d9;
+}
+
+/* Icon-Buttons (Herz, Papierkorb) */
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: transform 0.1s;
+}
+
+.btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.btn-icon--delete:hover {
+  filter: brightness(0.8);
+}
+
+/* ── Filter- und Suchbereich ──────────────────────────── */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 300px;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #7c3aed;
+}
+
+.filter-select {
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-select:focus {
+  border-color: #7c3aed;
+}
+
+.result-count {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ── Datentabelle ─────────────────────────────────────── */
+
+.table-wrapper {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background-color: #f8fafc;
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: #faf5ff;
+}
+
+/* ── Hilfsstile für Tabellenzellen ────────────────────── */
+
+.text-mono {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+}
+
+.text-strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ── Hinweis- und Fehlerboxen ─────────────────────────── */
+
+.info-box {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.info-box--error {
+  background-color: #fff1f2;
+  border-left: 4px solid #f43f5e;
+  color: #9f1239;
+}
+
+.info-box--info {
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  color: #1e40af;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: inherit;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+/* ── Formular – neuer Song ────────────────────────────── */
+
+.song-form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+  border-top: 3px solid #7c3aed;
+}
+
+.form-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.form-field input {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus {
+  border-color: #7c3aed;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── Leere Tabelle ────────────────────────────────────── */
+
+.empty-message {
+  text-align: center;
+  padding: 32px;
+  color: #94a3b8;
+  font-size: 14px;
+}
