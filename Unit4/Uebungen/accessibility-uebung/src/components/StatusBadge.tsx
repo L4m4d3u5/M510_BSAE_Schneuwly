@@ -7,6 +7,7 @@
 
 interface StatusBadgeProps {
   status: 'ok' | 'low' | 'empty'
+  ariaLabel: string
 }
 
 const statusColors: Record<string, string> = {
@@ -15,7 +16,7 @@ const statusColors: Record<string, string> = {
   empty: '#f44336',
 }
 
-export default function StatusBadge({ status }: StatusBadgeProps) {
+export default function StatusBadge({ status, ariaLabel }: StatusBadgeProps) {
   // Problem: nur ein Farbpunkt – kein Text, kein aria-label, keine Textbeschriftung
   return (
     <span
@@ -26,6 +27,8 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
         borderRadius: '50%',
         backgroundColor: statusColors[status],
       }}
+      aria-label={ariaLabel} // Problem: aria-label ist statisch und sagt nur "ok", "low" oder "empty", aber nicht was das bedeutet
+
     />
   )
 }

@@ -25,7 +25,7 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
 
       {/* Problem #2: niedriger Kontrast – hellgrauer Text auf weißem Hintergrund */}
-      <p style={{ color: '#bbb', marginBottom: 24 }}>
+      <p style={{ color: '#000000', marginBottom: 24 }}>
         Letzte Aktualisierung: 29.05.2025, 14:32 Uhr
       </p>
 
@@ -34,16 +34,18 @@ export default function Dashboard() {
         <Card style={{ minWidth: 160 }}>
           <CardContent>
             {/* Problem #1: Sprung zu h5 */}
-            <h5 style={{ color: '#555', margin: 0 }}>Gesamt Artikel</h5>
+            <h2 style={{ color: '#555', margin: 0 }}>Gesamt Artikel</h2>
             <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0' }}>{totalArticles}</p>
           </CardContent>
         </Card>
 
         <Card style={{ minWidth: 160 }}>
           <CardContent>
-            <h5 style={{ color: '#555', margin: 0 }}>Ausreichend</h5>
-            {/* Problem #2: Zahl nur in Farbe Grün – kein Label */}
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#4caf50' }}>
+            <h2 style={{ color: '#555', margin: 0 }}>Ausreichend</h2>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#4caf50' }}
+              aria-label={`${okStock} Artikel ausreichend`}
+            >
               {okStock}
             </p>
           </CardContent>
@@ -51,8 +53,11 @@ export default function Dashboard() {
 
         <Card style={{ minWidth: 160 }}>
           <CardContent>
-            <h5 style={{ color: '#555', margin: 0 }}>Knapper Bestand</h5>
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#ff9800' }}>
+            <h2 style={{ color: '#555', margin: 0 }}>Knapper Bestand</h2>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#ff9800' }}
+              aria-label={`${lowStock} Artikel mit knappem Bestand`}
+            >
               {lowStock}
             </p>
           </CardContent>
@@ -60,8 +65,11 @@ export default function Dashboard() {
 
         <Card style={{ minWidth: 160 }}>
           <CardContent>
-            <h5 style={{ color: '#555', margin: 0 }}>Nicht verfügbar</h5>
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#f44336' }}>
+            <h2 style={{ color: '#555', margin: 0 }}>Nicht verfügbar</h2>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#f44336' }}
+              aria-label={`${emptyStock} Artikel nicht verfügbar`}
+            >
               {emptyStock}
             </p>
           </CardContent>
@@ -69,11 +77,11 @@ export default function Dashboard() {
       </div>
 
       {/* Problem #3: Statuslegende – Chips kommunizieren Bedeutung nur über Farbe */}
-      <h5>Statusübersicht</h5>
+      <h3>Statusübersicht</h3>
       <div style={{ marginBottom: 24, marginTop: 8 }}>
-        <Chip label="●" style={{ background: '#4caf50', color: '#fff', marginRight: 8 }} />
-        <Chip label="●" style={{ background: '#ff9800', color: '#fff', marginRight: 8 }} />
-        <Chip label="●" style={{ background: '#f44336', color: '#fff' }} />
+        <Chip label="●" style={{ background: '#4caf50', color: '#fff', marginRight: 8 }} aria-label="Ausreichend" />
+        <Chip label="●" style={{ background: '#ff9800', color: '#fff', marginRight: 8 }} aria-label="Knapper Bestand" />
+        <Chip label="●" style={{ background: '#f44336', color: '#fff' }} aria-label="Nicht verfügbar" />
       </div>
 
       {/* Problem #4: Warnungsbereich mit sehr geringem Kontrast */}
@@ -87,17 +95,17 @@ export default function Dashboard() {
         }}
       >
         {/* Helles Orange (#ffb74d) auf hellem Hintergrund – WCAG Kontrastverhältnis < 3:1 */}
-        <p style={{ color: '#ffb74d', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <p style={{ color: '#000000', display: 'flex', alignItems: 'center', gap: 8 }}>
           <WarningIcon style={{ fontSize: 18 }} />
           {lowStock + emptyStock} Artikel benötigen Aufmerksamkeit
         </p>
       </div>
 
       {/* Schnellaktionen */}
-      <h5>Schnellaktionen</h5>
+      <h3>Schnellaktionen</h3>
       <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
         {/* Problem #5: klickbares div statt button */}
-        <div
+        <button
           onClick={() => alert('Bericht wird erstellt...')}
           style={{
             background: '#1976d2',
@@ -112,10 +120,10 @@ export default function Dashboard() {
         >
           <TrendingUpIcon style={{ fontSize: 18 }} />
           Lagerbericht erstellen
-        </div>
+        </button>
 
         {/* Problem #6: unklarer Button-Text "Hier klicken" */}
-        <div
+        <button
           onClick={() => alert('Statistiken werden geladen...')}
           style={{
             background: '#757575',
@@ -125,8 +133,8 @@ export default function Dashboard() {
             cursor: 'pointer',
           }}
         >
-          Hier klicken
-        </div>
+          Statistiken laden
+        </button>
       </div>
     </div>
   )

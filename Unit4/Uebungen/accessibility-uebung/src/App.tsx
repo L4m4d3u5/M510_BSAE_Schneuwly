@@ -11,14 +11,17 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard')
 
   return (
-    <div className="app-container">
-      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
-      <main className="main-content">
-        {currentPage === 'dashboard' && <Dashboard />}
-        {currentPage === 'articles' && <ArticleList />}
-        {currentPage === 'form' && <ArticleForm />}
-      </main>
-    </div>
+    <>
+      <a href="#main-content" className="skip-link">Zum Hauptinhalt springen</a>
+      <div className="app-container">
+        <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
+        <main id="main-content" className="main-content">
+          {currentPage === 'dashboard' && <Dashboard />}
+          {currentPage === 'articles' && <ArticleList />}
+          {currentPage === 'form' && <ArticleForm />}
+        </main>
+      </div>
+    </>
   )
 }
 

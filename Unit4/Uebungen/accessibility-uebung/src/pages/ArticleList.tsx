@@ -6,6 +6,12 @@ import InfoIcon from '@mui/icons-material/Info'
 import { articles, Article } from '../data/articles'
 import StatusBadge from '../components/StatusBadge'
 
+const statusLabels: Record<string, string> = {
+  ok: 'Ausreichend',
+  low: 'Knapper Bestand',
+  empty: 'Nicht verfügbar',
+}
+
 /*
  * ACCESSIBILITY-PROBLEME in dieser Komponente:
  *
@@ -25,8 +31,8 @@ export default function ArticleList() {
       <h2>Artikelübersicht</h2>
 
       {/* Problem #6 & #7: niedriger Kontrast, InfoIcon ohne aria-label */}
-      <p style={{ color: '#aaa', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 4 }}>
-        <InfoIcon style={{ fontSize: 16, color: '#64b5f6' }} />
+      <p style={{ color: '#000000', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 4 }}>
+        <InfoIcon style={{ fontSize: 16, color: '#64b5f6' }} aria-label="Information" />
         Klicken Sie auf einen Artikel für Details
       </p>
 
@@ -34,22 +40,22 @@ export default function ArticleList() {
         <thead>
           <tr style={{ background: '#f5f5f5' }}>
             {/* Problem #1: th ohne scope="col" */}
-            <th style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
               Artikel
             </th>
-            <th style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
               SKU
             </th>
-            <th style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>
               Kategorie
             </th>
-            <th style={{ padding: '12px 16px', textAlign: 'right', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'right', borderBottom: '2px solid #e0e0e0' }}>
               Menge
             </th>
-            <th style={{ padding: '12px 16px', textAlign: 'center', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'center', borderBottom: '2px solid #e0e0e0' }}>
               Status
             </th>
-            <th style={{ padding: '12px 16px', textAlign: 'center', borderBottom: '2px solid #e0e0e0' }}>
+            <th scope="col" style={{ padding: '12px 16px', textAlign: 'center', borderBottom: '2px solid #e0e0e0' }}>
               Aktionen
             </th>
           </tr>
@@ -58,19 +64,19 @@ export default function ArticleList() {
           {articles.map((article) => (
             <tr key={article.id} style={{ borderBottom: '1px solid #e0e0e0' }}>
               <td style={{ padding: '12px 16px' }}>{article.name}</td>
-              <td style={{ padding: '12px 16px', color: '#888' }}>{article.sku}</td>
+              <td style={{ padding: '12px 16px', color: '#000000' }}>{article.sku}</td>
               <td style={{ padding: '12px 16px' }}>{article.category}</td>
               <td style={{ padding: '12px 16px', textAlign: 'right' }}>{article.quantity}</td>
               <td style={{ padding: '12px 16px', textAlign: 'center' }}>
                 {/* Problem #2: StatusBadge nur mit Farbe */}
-                <StatusBadge status={article.status} />
+                <StatusBadge status={article.status} ariaLabel={`Status: ${statusLabels[article.status]}`} />
               </td>
               <td style={{ padding: '12px 16px', textAlign: 'center' }}>
                 {/* Problem #3: IconButtons ohne aria-label */}
-                <IconButton size="small" onClick={() => setSelectedArticle(article)}>
+                <IconButton size="small" onClick={() => setSelectedArticle(article)} aria-label={`Artikel "${article.name}" bearbeiten`}>
                   <EditIcon fontSize="small" />
                 </IconButton>
-                <IconButton size="small" onClick={() => alert(`Artikel "${article.name}" gelöscht`)}>
+                <IconButton size="small" onClick={() => alert(`Artikel "${article.name}" gelöscht`)} aria-label={`Artikel "${article.name}" löschen`}>
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </td>
@@ -101,17 +107,21 @@ export default function ArticleList() {
                 <strong>Mindestmenge:</strong> {selectedArticle.minQuantity}
               </p>
               {/* Problem #5: klickbares div zum Schliessen statt Button */}
-              <div
+              <button
                 onClick={() => setSelectedArticle(null)}
                 style={{
                   marginTop: 16,
                   color: '#1976d2',
                   cursor: 'pointer',
                   textDecoration: 'underline',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  font: 'inherit',
                 }}
               >
                 Schliessen
-              </div>
+              </button>
             </div>
           )}
         </DialogContent>
