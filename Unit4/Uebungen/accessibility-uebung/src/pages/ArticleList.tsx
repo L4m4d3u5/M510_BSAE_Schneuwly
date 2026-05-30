@@ -6,6 +6,12 @@ import InfoIcon from '@mui/icons-material/Info'
 import { articles, Article } from '../data/articles'
 import StatusBadge from '../components/StatusBadge'
 
+const statusLabels: Record<string, string> = {
+  ok: 'Ausreichend',
+  low: 'Knapper Bestand',
+  empty: 'Nicht verfügbar',
+}
+
 /*
  * ACCESSIBILITY-PROBLEME in dieser Komponente:
  *
@@ -63,7 +69,7 @@ export default function ArticleList() {
               <td style={{ padding: '12px 16px', textAlign: 'right' }}>{article.quantity}</td>
               <td style={{ padding: '12px 16px', textAlign: 'center' }}>
                 {/* Problem #2: StatusBadge nur mit Farbe */}
-                <StatusBadge status={article.status} ariaLabel={`Status: ${article.status}`} />
+                <StatusBadge status={article.status} ariaLabel={`Status: ${statusLabels[article.status]}`} />
               </td>
               <td style={{ padding: '12px 16px', textAlign: 'center' }}>
                 {/* Problem #3: IconButtons ohne aria-label */}

@@ -42,8 +42,10 @@ export default function Dashboard() {
         <Card style={{ minWidth: 160 }}>
           <CardContent>
             <h2 style={{ color: '#555', margin: 0 }}>Ausreichend</h2>
-            {/* Problem #2: Zahl nur in Farbe Grün – kein Label */}
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#4caf50' }}>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#4caf50' }}
+              aria-label={`${okStock} Artikel ausreichend`}
+            >
               {okStock}
             </p>
           </CardContent>
@@ -52,7 +54,10 @@ export default function Dashboard() {
         <Card style={{ minWidth: 160 }}>
           <CardContent>
             <h2 style={{ color: '#555', margin: 0 }}>Knapper Bestand</h2>
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#ff9800' }}>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#ff9800' }}
+              aria-label={`${lowStock} Artikel mit knappem Bestand`}
+            >
               {lowStock}
             </p>
           </CardContent>
@@ -61,7 +66,10 @@ export default function Dashboard() {
         <Card style={{ minWidth: 160 }}>
           <CardContent>
             <h2 style={{ color: '#555', margin: 0 }}>Nicht verfügbar</h2>
-            <p style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#f44336' }}>
+            <p
+              style={{ fontSize: 32, fontWeight: 'bold', margin: '8px 0', color: '#f44336' }}
+              aria-label={`${emptyStock} Artikel nicht verfügbar`}
+            >
               {emptyStock}
             </p>
           </CardContent>

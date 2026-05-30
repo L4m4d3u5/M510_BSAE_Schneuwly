@@ -124,6 +124,15 @@ export default function ArticleForm() {
         </div>
       </form>
 
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}
+      >
+        {snackbarOpen ? 'Artikel wurde erfolgreich gespeichert.' : ''}
+      </div>
+
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
