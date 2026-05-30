@@ -19,9 +19,18 @@ const Produkttabelle = ({ products }: { products: GridRowsProp }) => {
         { field: 'standort', headerName: 'Standort', width: 120 },
     ];
 
+    const unterbestandAnzahl = products.filter(
+        (p: any) => p.lagerbestand < p.mindestbestand
+    ).length;
+
     return (
         <>
-            <p>Seite {paginationModel.page + 1} von {totalPages}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '0.5rem' }}>
+                <p style={{ margin: 0 }}>Seite {paginationModel.page + 1} von {totalPages}</p>
+                <p style={{ margin: 0, color: unterbestandAnzahl > 0 ? '#c62828' : 'inherit', fontWeight: 'bold' }}>
+                    ⚠ Unterbestand: {unterbestandAnzahl} von {products.length} Produkten
+                </p>
+            </div>
             <DataGrid
                 rows={products}
                 columns={columns}
