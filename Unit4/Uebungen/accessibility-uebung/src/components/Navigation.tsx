@@ -27,7 +27,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
   return (
     // Problem #1: div statt <nav>
-    <div
+    <nav
       style={{
         width: collapsed ? 60 : 220,
         background: '#1a237e',
@@ -42,7 +42,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     >
       <div style={{ display: 'flex', alignItems: 'center', padding: '0 12px', marginBottom: 16 }}>
         {/* Problem #3: IconButton ohne aria-label */}
-        <IconButton onClick={() => setCollapsed(!collapsed)} style={{ color: '#fff' }}>
+        <IconButton onClick={() => setCollapsed(!collapsed)} style={{ color: '#fff' }} aria-label="Menü">
+
           <MenuIcon />
         </IconButton>
         {!collapsed && (
@@ -53,8 +54,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
       <Divider style={{ background: 'rgba(255,255,255,0.2)' }} />
 
       {/* Problem #2: klickbare divs statt Buttons/Links */}
-      <div
+      <button
         onClick={() => onNavigate('dashboard')}
+
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -62,13 +64,15 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           cursor: 'pointer',
           background: currentPage === 'dashboard' ? 'rgba(255,255,255,0.15)' : 'transparent',
           marginTop: 8,
+          color: currentPage === 'dashboard' ? '#fff' : 'rgba(255,255,255,0.7)',
         }}
+        aria-current={currentPage === 'dashboard' ? 'page' : undefined}
       >
         <DashboardIcon />
         {!collapsed && <span style={{ marginLeft: 12 }}>Dashboard</span>}
-      </div>
+      </button>
 
-      <div
+      <button
         onClick={() => onNavigate('articles')}
         style={{
           display: 'flex',
@@ -76,13 +80,15 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           padding: '12px 16px',
           cursor: 'pointer',
           background: currentPage === 'articles' ? 'rgba(255,255,255,0.15)' : 'transparent',
+          color: currentPage === 'articles' ? '#fff' : 'rgba(255,255,255,0.7)',
         }}
+        aria-current={currentPage === 'articles' ? 'page' : undefined}
       >
         <InventoryIcon />
         {!collapsed && <span style={{ marginLeft: 12 }}>Artikel</span>}
-      </div>
+      </button>
 
-      <div
+      <button
         onClick={() => onNavigate('form')}
         style={{
           display: 'flex',
@@ -90,11 +96,13 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           padding: '12px 16px',
           cursor: 'pointer',
           background: currentPage === 'form' ? 'rgba(255,255,255,0.15)' : 'transparent',
+          color: currentPage === 'dashboard' ? '#fff' : 'rgba(255,255,255,0.7)',
         }}
+        aria-current={currentPage === 'form' ? 'page' : undefined}
       >
         <AddBoxIcon />
         {!collapsed && <span style={{ marginLeft: 12 }}>Neuer Artikel</span>}
-      </div>
+      </button>
 
       <div style={{ flexGrow: 1 }} />
 
@@ -102,13 +110,13 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
       <div style={{ display: 'flex', justifyContent: 'space-around', padding: '12px 0' }}>
         {/* Problem #4: IconButtons ohne aria-label */}
-        <IconButton style={{ color: '#fff' }}>
+        <IconButton style={{ color: '#fff' }} aria-label="Benachrichtigungen">
           <NotificationsIcon />
         </IconButton>
-        <IconButton style={{ color: '#fff' }}>
+        <IconButton style={{ color: '#fff' }} aria-label="Einstellungen">
           <SettingsIcon />
         </IconButton>
       </div>
-    </div>
+    </nav>
   )
 }

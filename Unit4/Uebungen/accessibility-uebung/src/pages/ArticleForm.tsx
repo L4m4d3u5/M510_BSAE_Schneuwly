@@ -28,7 +28,7 @@ export default function ArticleForm() {
       <h2>Artikel erfassen</h2>
 
       {/* Problem: niedriger Kontrast */}
-      <p style={{ color: '#aaa', marginBottom: 24 }}>
+      <p style={{ color: '#000000', marginBottom: 24 }}>
         Füllen Sie das Formular aus, um einen neuen Artikel anzulegen.
       </p>
 
@@ -40,16 +40,19 @@ export default function ArticleForm() {
             placeholder="Artikelname eingeben"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            aria-label="Artikelname (Pflichtfeld)" // Problem: aria-label ist statisch und sagt nur "Artikelname", aber nicht dass es ein Pflichtfeld ist
+            required
           />
         </div>
 
         {/* Problem #2 & #3: label ohne htmlFor, input ohne id */}
         <div style={{ marginBottom: 16 }}>
-          <label style={{ display: 'block', marginBottom: 4, fontWeight: 500 }}>
+          <label style={{ display: 'block', marginBottom: 4, fontWeight: 500 }} htmlFor="sku-input">
             Artikelnummer
           </label>
           <input
             type="text"
+            id="sku-input"
             value={sku}
             onChange={(e) => setSku(e.target.value)}
             style={{
@@ -64,9 +67,12 @@ export default function ArticleForm() {
 
         {/* Problem #2 & #3: label ohne htmlFor, input ohne id */}
         <div style={{ marginBottom: 16 }}>
-          <label style={{ display: 'block', marginBottom: 4, fontWeight: 500 }}>Menge</label>
+          <label style={{ display: 'block', marginBottom: 4, fontWeight: 500 }} htmlFor="quantity-input">
+            Menge
+          </label>
           <input
             type="number"
+            id="quantity-input"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             style={{
@@ -81,8 +87,12 @@ export default function ArticleForm() {
 
         {/* Problem #4: MUI Select ohne Label */}
         <div style={{ marginBottom: 24 }}>
+          <label htmlFor="category-select" style={{ display: 'block', marginBottom: 4, fontWeight: 500 }}>
+            Kategorie
+          </label>
           <Select
             fullWidth
+            id="category-select"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             displayEmpty
@@ -97,7 +107,7 @@ export default function ArticleForm() {
         <div style={{ display: 'flex', gap: 12 }}>
           {/* Problem #5: Button-Text "Weiter" ist irreführend – Aktion ist Speichern */}
           <Button type="submit" variant="contained">
-            Weiter
+            Speichern
           </Button>
           <Button
             type="button"
