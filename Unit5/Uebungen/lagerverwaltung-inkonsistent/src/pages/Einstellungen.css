@@ -1,0 +1,33 @@
+/* Einstellungen.css
+   Buttons hier via CSS-Klassen – absichtlich andere Herangehensweise
+   als die Inline-Styles auf den anderen Seiten                        */
+
+.btn-sichern {
+  padding: 8px 22px;
+  background-color: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-sichern:hover {
+  background-color: #2e7d32;
+}
+
+/* Abbrechen-Button: runde Ecken – anders als btn-sichern mit borderRadius 3px */
+.btn-abbrechen {
+  padding: 8px 22px;
+  background-color: transparent;
+  color: #555;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-abbrechen:hover {
+  background-color: #f5f5f5;
+}
