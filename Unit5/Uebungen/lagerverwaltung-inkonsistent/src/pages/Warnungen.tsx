@@ -1,10 +1,7 @@
 import React from 'react';
 import { artikel } from '../data/mockData';
-import Button from '../components/Button';
-
-// -----------------------------------------------------------------------
-// Warnungen – absichtlich wieder andere Button- und Status-Darstellung
-// -----------------------------------------------------------------------
+import StatCard from '../components/StatCard';
+import ArticleCard from '../components/ArticleCard';
 
 const Warnungen: React.FC = () => {
   const kritisch = artikel.filter((a) => a.status === 'kritisch');
@@ -20,63 +17,9 @@ const Warnungen: React.FC = () => {
         {gesamtWarnungen} Artikel erfordern sofortige Aufmerksamkeit
       </p>
 
-      {/* ===== STATISTIK-KARTEN – absichtlich anders als auf Dashboard ===== */}
-      {/* Dashboard: gefüllte Karten · Warnungen: nur Rahmen, riesige Zahlen */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '36px', flexWrap: 'wrap' }}>
-
-        {/* Karte: oranger Rahmen, kein Hintergrund, zentriert */}
-        <div
-          style={{
-            border: '3px solid #ff9800',
-            borderRadius: '8px',
-            padding: '20px 28px',
-            textAlign: 'center',
-            minWidth: '150px',
-          }}
-        >
-          <div style={{ fontSize: '52px', fontWeight: 'bold', color: '#e65100', lineHeight: 1 }}>
-            {kritisch.length}
-          </div>
-          <div
-            style={{
-              color: '#ff9800',
-              fontSize: '11px',
-              fontWeight: 'bold',
-              marginTop: '8px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-            }}
-          >
-            Kritisch
-          </div>
-        </div>
-
-        {/* Karte: roter Rahmen – gleiche Struktur, aber andere Farbe */}
-        <div
-          style={{
-            border: '3px solid #f44336',
-            borderRadius: '8px',
-            padding: '20px 28px',
-            textAlign: 'center',
-            minWidth: '150px',
-          }}
-        >
-          <div style={{ fontSize: '52px', fontWeight: 'bold', color: '#d32f2f', lineHeight: 1 }}>
-            {nichtVerfuegbar.length}
-          </div>
-          <div
-            style={{
-              color: '#f44336',
-              fontSize: '11px',
-              fontWeight: 'bold',
-              marginTop: '8px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-            }}
-          >
-            Nicht verfügbar
-          </div>
-        </div>
+        <StatCard variant="outlined" color="#ff9800" valueColor="#e65100" value={kritisch.length} label="Kritisch" centered />
+        <StatCard variant="outlined" color="#f44336" valueColor="#d32f2f" value={nichtVerfuegbar.length} label="Nicht verfügbar" centered />
       </div>
 
       {/* ===== KRITISCHE ARTIKEL ===== */}
@@ -96,38 +39,7 @@ const Warnungen: React.FC = () => {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {kritisch.map((a) => (
-            <div
-              key={a.id}
-              style={{
-                background: '#fff8e1',
-                border: '1px solid #ffe082',
-                borderRadius: '6px',
-                padding: '14px 16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '12px',
-              }}
-            >
-              <div>
-                <div style={{ fontWeight: 600, marginBottom: '4px' }}>{a.name}</div>
-                <div style={{ fontSize: '13px', color: '#777' }}>
-                  Bestand:{' '}
-                  <strong style={{ color: '#e65100' }}>{a.bestand}</strong> / Min: {a.minBestand} ·
-                  Lager {a.lagerort}
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                {/* Status-Label: nur farbiger Text in Grossbuchstaben – keine Badge-Form */}
-                <span style={{ color: '#e65100', fontWeight: 'bold', fontSize: '13px' }}>
-                  KRITISCH
-                </span>
-
-                <Button label="Bestellen" variant="warning" size="sm" shape="square" />
-              </div>
-            </div>
+            <ArticleCard key={a.id} artikel={a} variant="kritisch" />
           ))}
         </div>
       </section>
@@ -149,47 +61,7 @@ const Warnungen: React.FC = () => {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {nichtVerfuegbar.map((a) => (
-            <div
-              key={a.id}
-              style={{
-                background: '#ffebee',
-                border: '1px solid #ef9a9a',
-                borderRadius: '6px',
-                padding: '14px 16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '12px',
-              }}
-            >
-              <div>
-                <div style={{ fontWeight: 600, marginBottom: '4px' }}>{a.name}</div>
-                <div style={{ fontSize: '13px', color: '#777' }}>
-                  Bestand: <strong style={{ color: '#d32f2f' }}>0</strong> / Min: {a.minBestand} ·
-                  Lager {a.lagerort}
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                {/* Status-Label: schwarze Box mit weissem Text – wieder andere Form */}
-                <span
-                  style={{
-                    backgroundColor: '#d32f2f',
-                    color: 'white',
-                    padding: '3px 8px',
-                    fontSize: '11px',
-                    fontWeight: 'bold',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                  }}
-                >
-                  Ausverkauft
-                </span>
-
-                <Button label="Jetzt bestellen" variant="danger" size="sm" shape="pill" />
-              </div>
-            </div>
+            <ArticleCard key={a.id} artikel={a} variant="nicht-verfügbar" />
           ))}
         </div>
       </section>

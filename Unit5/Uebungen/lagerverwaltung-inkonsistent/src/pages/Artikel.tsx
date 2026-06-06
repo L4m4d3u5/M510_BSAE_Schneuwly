@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { artikel as alleArtikel } from '../data/mockData';
-import { Artikel, ArtikelStatus } from '../types';
+import { Artikel } from '../types';
 import Button from '../components/Button';
+import StatusBadge from '../components/StatusBadge';
 
-// -----------------------------------------------------------------------
-// Artikelseite – absichtlich andere Button- und Status-Chip-Stile als Dashboard
-// -----------------------------------------------------------------------
 
 const ArtikelSeite: React.FC = () => {
   const [artikelListe] = useState<Artikel[]>(alleArtikel);
@@ -123,7 +121,6 @@ const ArtikelSeite: React.FC = () => {
                 </td>
                 <td style={{ padding: '10px 14px', fontSize: '13px', color: '#555' }}>{a.lagerort}</td>
 
-                {/* Status-Chips: absichtlich eckige Badges (kein Radius) – anders als Dashboard-Pills */}
                 <td style={{ padding: '10px 14px' }}>
                   <StatusBadge status={a.status} />
                 </td>
@@ -157,31 +154,5 @@ const ArtikelSeite: React.FC = () => {
   );
 };
 
-// Hilfsfunktion: Status-Badge – eckig, flach, ohne Radius (absichtlich anders als Dashboard)
-function StatusBadge({ status }: { status: ArtikelStatus }) {
-  const config: Record<ArtikelStatus, { label: string; bg: string; color: string }> = {
-    aktiv: { label: 'Aktiv', bg: '#4caf50', color: 'white' },
-    kritisch: { label: 'Kritisch', bg: '#ff9800', color: 'white' },
-    'nicht-verfügbar': { label: 'Nicht verfügbar', bg: '#f44336', color: 'white' },
-    pausiert: { label: 'Pausiert', bg: '#9e9e9e', color: 'white' },
-  };
-  const c = config[status];
-  return (
-    <span
-      style={{
-        backgroundColor: c.bg,
-        color: c.color,
-        padding: '2px 8px',
-        fontSize: '11px',
-        borderRadius: '2px',
-        display: 'inline-block',
-        fontWeight: 600,
-        whiteSpace: 'nowrap',
-      }}
-    >
-      {c.label}
-    </span>
-  );
-}
 
 export default ArtikelSeite;
