@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { artikel as alleArtikel } from '../data/mockData';
 import { Artikel, ArtikelStatus } from '../types';
+import Button from '../components/Button';
 
 // -----------------------------------------------------------------------
 // Artikelseite – absichtlich andere Button- und Status-Chip-Stile als Dashboard
@@ -42,41 +43,25 @@ const ArtikelSeite: React.FC = () => {
           </p>
         </div>
 
-        {/* Primär-Button: grün, grösser, fett – absichtlich anders als blau auf Dashboard */}
-        <button
-          style={{
-            backgroundColor: '#2e7d32',
-            color: 'white',
-            padding: '10px 24px',
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontSize: '15px',
-            fontWeight: 'bold',
-          }}
-        >
-          + Neuer Artikel
-        </button>
+        <Button label="+ Neuer Artikel" variant="primary" size="lg" />
       </div>
 
-      {/* Filter-Buttons: Pill-Form, wieder anderes Styling */}
       <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {filterOptionen.map((f) => (
-          <button
+          <Button
             key={f.wert}
             onClick={() => setFilter(f.wert)}
-            style={{
-              padding: '5px 14px',
-              border: filter === f.wert ? '2px solid #1976d2' : '1px solid #ccc',
-              borderRadius: '16px',
-              backgroundColor: filter === f.wert ? '#e3f2fd' : 'white',
-              color: filter === f.wert ? '#1976d2' : '#555',
-              cursor: 'pointer',
-              fontSize: '13px',
-            }}
-          >
-            {f.label}
-          </button>
+            label={f.label}
+            variant="outline"
+            size="sm"
+            shape="pill"
+            style={
+              filter !== f.wert
+                ? { border: '1px solid #ccc', color: '#555', backgroundColor: 'white' }
+                : { backgroundColor: '#e3f2fd' }
+            }
+          />
+
         ))}
       </div>
 
@@ -126,8 +111,8 @@ const ArtikelSeite: React.FC = () => {
                       a.bestand === 0
                         ? '#d32f2f'
                         : a.bestand < a.minBestand
-                        ? '#e65100'
-                        : '#222',
+                          ? '#e65100'
+                          : '#222',
                   }}
                 >
                   {a.bestand}
@@ -143,35 +128,10 @@ const ArtikelSeite: React.FC = () => {
                   <StatusBadge status={a.status} />
                 </td>
 
-                {/* Aktions-Buttons: kleine Outline-Buttons – wieder andere Variante */}
                 <td style={{ padding: '10px 14px' }}>
                   <div style={{ display: 'flex', gap: '6px' }}>
-                    <button
-                      style={{
-                        padding: '4px 10px',
-                        fontSize: '12px',
-                        backgroundColor: 'transparent',
-                        border: '1px solid #1976d2',
-                        color: '#1976d2',
-                        borderRadius: '3px',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      Bearbeiten
-                    </button>
-                    <button
-                      style={{
-                        padding: '4px 10px',
-                        fontSize: '12px',
-                        backgroundColor: 'transparent',
-                        border: '1px solid #d32f2f',
-                        color: '#d32f2f',
-                        borderRadius: '3px',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      Löschen
-                    </button>
+                    <Button label="Bearbeiten" variant="outline" size="sm" />
+                    <Button label="Löschen" variant="danger" size="sm" />
                   </div>
                 </td>
               </tr>

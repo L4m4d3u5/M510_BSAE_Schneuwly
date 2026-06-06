@@ -1,5 +1,6 @@
 import React from 'react';
 import { artikel } from '../data/mockData';
+import Button from '../components/Button';
 
 // -----------------------------------------------------------------------
 // Dashboard – absichtlich uneinheitliche Gestaltung (didaktisches Beispiel)
@@ -112,50 +113,9 @@ const Dashboard: React.FC = () => {
         <h2 style={{ marginBottom: '14px', fontSize: '18px', color: '#333' }}>Schnellaktionen</h2>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
 
-          {/* Button 1: blauer Primär-Button, mittleres Padding */}
-          <button
-            style={{
-              backgroundColor: '#1976d2',
-              color: 'white',
-              padding: '8px 18px',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '14px',
-            }}
-          >
-            Bericht laden
-          </button>
-
-          {/* Button 2: Outline-Variante, gleicher Radius wie Button 1 */}
-          <button
-            style={{
-              backgroundColor: 'white',
-              color: '#1976d2',
-              padding: '8px 18px',
-              border: '1px solid #1976d2',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '14px',
-            }}
-          >
-            Exportieren
-          </button>
-
-          {/* Button 3: grau, Pill-Form, kleiner – wirkt wie Sekundär, ist aber anders */}
-          <button
-            style={{
-              backgroundColor: '#9e9e9e',
-              color: 'white',
-              padding: '6px 14px',
-              border: 'none',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Aktualisieren
-          </button>
+          <Button label="Bericht laden" variant="primary" />
+          <Button label="Exportieren" variant="outline" />
+          <Button label="Aktualisieren" variant="secondary" size="sm" shape="pill" />
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { artikel } from '../data/mockData';
+import Button from '../components/Button';
 
 // -----------------------------------------------------------------------
 // Warnungen – absichtlich wieder andere Button- und Status-Darstellung
@@ -124,23 +125,7 @@ const Warnungen: React.FC = () => {
                   KRITISCH
                 </span>
 
-                {/* Button: orange, eckig, Grossbuchstaben – ganz anders als Dashboard */}
-                <button
-                  style={{
-                    backgroundColor: '#e65100',
-                    color: 'white',
-                    padding: '8px 16px',
-                    border: 'none',
-                    borderRadius: '2px',
-                    cursor: 'pointer',
-                    fontSize: '13px',
-                    fontWeight: 'bold',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
-                  Bestellen
-                </button>
+                <Button label="Bestellen" variant="warning" size="sm" shape="square" />
               </div>
             </div>
           ))}
@@ -202,21 +187,7 @@ const Warnungen: React.FC = () => {
                   Ausverkauft
                 </span>
 
-                {/* Button: rund, anderer Text als oben ("Jetzt bestellen" statt "Bestellen") */}
-                <button
-                  style={{
-                    backgroundColor: '#d32f2f',
-                    color: 'white',
-                    padding: '6px 20px',
-                    border: 'none',
-                    borderRadius: '20px',
-                    cursor: 'pointer',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                  }}
-                >
-                  Jetzt bestellen
-                </button>
+                <Button label="Jetzt bestellen" variant="danger" size="sm" shape="pill" />
               </div>
             </div>
           ))}
