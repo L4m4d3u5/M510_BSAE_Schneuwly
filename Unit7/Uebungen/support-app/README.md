@@ -174,3 +174,26 @@ src/
 └── types/
     └── ticket.ts     # TypeScript-Typen
 ```
+
+---
+
+## Bearbeitung / Lösung
+
+> Die ausgearbeitete Lösung dieser Aufgabe liegt in [`LOESUNG.md`](./LOESUNG.md).
+> Teil 1, 2, 4 und 5 sowie die heuristische Vorab-Analyse (Teil 3a) sind dort fertig
+> bearbeitet und mit Quellen belegt.
+
+### ✅ Selbst zu erledigen (erfordert echten Test)
+
+Diese Schritte kann nur ich (die ausführende Person) durchführen – sie brauchen
+eine **reale Testperson** und lassen sich nicht am Schreibtisch erfinden:
+
+- [ ] App lokal starten: `npm install` && `npm run dev` → [http://localhost:3007](http://localhost:3007)
+- [ ] **Testperson** organisieren (idealerweise jemand, der die App nicht kennt)
+- [ ] Die **3 Aufgaben** aus Teil 2 von der Testperson **laut denkend** lösen lassen
+- [ ] Dabei **beobachten und protokollieren** → Tabelle in [`LOESUNG.md`](./LOESUNG.md) Teil 3b ausfüllen
+- [ ] Beobachtungen mit den Hypothesen H1–H10 (Teil 3a) **abgleichen**
+- [ ] Priorisierung (Teil 4) bei Bedarf an die echten Beobachtungen **anpassen**
+- [ ] Rahmendaten (Testperson, Datum, Dauer, Beobachter) eintragen
+- [ ] Optional: Screenshots der Stolperstellen für die Präsentation aufnehmen
+- [ ] Abgeben / vorstellen gemäß Abschnitt **„Erwartetes Ergebnis"**
