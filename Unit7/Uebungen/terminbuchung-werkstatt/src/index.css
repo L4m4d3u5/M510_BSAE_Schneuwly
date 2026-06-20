@@ -1,0 +1,436 @@
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.header {
+  background-color: #1d4ed8;
+  color: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__logo {
+  font-size: 18px;
+}
+
+.header__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header__nav {
+  display: flex;
+  gap: 4px;
+}
+
+/* UX-Schwäche: Active-Link-Hervorhebung ist kaum sichtbar */
+.header__nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.15s;
+}
+
+.header__nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.header__nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ============================================================
+   Page
+   ============================================================ */
+.page {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.page__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.page h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.page__subtitle {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   Stat Cards
+   ============================================================ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-top: 4px solid transparent;
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card__value {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-card__label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.15s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+}
+
+/* UX-Schwäche: btn-action sieht kaum anders aus als btn-cancel –
+   Hauptaktion und Abbrechen sind schwer unterscheidbar */
+.btn-action {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.btn-action:hover {
+  background-color: #2563eb;
+}
+
+.btn-cancel {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.btn-cancel:hover {
+  background-color: #d1d5db;
+}
+
+/* UX-Schwäche: btn-plain wirkt wie normaler Linktext –
+   Nutzer erkennt nicht, dass es sich um die Hauptaktion handelt */
+.btn-plain {
+  background: none;
+  color: #1d4ed8;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+}
+
+/* ============================================================
+   Appointment List
+   ============================================================ */
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* UX-Schwäche: Kein klarer visueller Trenner zwischen Liste und
+   dem "Neuen Termin"-Button am Ende */
+.list-bottom-action {
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.appointment-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 14px 18px;
+  background: #fafafa;
+}
+
+.appointment-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.appointment-card__id {
+  font-size: 11px;
+  color: #9ca3af;
+  font-family: monospace;
+}
+
+.appointment-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+/* UX-Schwäche: Meta-Informationen sind aufgelistet ohne Labels –
+   man muss raten, welcher Wert was bedeutet */
+.appointment-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.appointment-card__note {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ============================================================
+   Status Badges
+   ============================================================ */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge--confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge--booked {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge--pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* ============================================================
+   Form
+   ============================================================ */
+.form {
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* UX-Schwäche: keine Pflichtfeldmarkierung */
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #1f2937;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.input-error {
+  border-color: #ef4444 !important;
+}
+
+/* UX-Schwäche: Fehlermeldungen erscheinen nur nach Submit, nicht live */
+.form-error {
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   Confirmation
+   ============================================================ */
+/* UX-Schwäche: Bestätigungsseite hat kein auffälliges visuelles
+   Erfolgselement – sie sieht aus wie eine normale Seite */
+.confirmation {
+  max-width: 480px;
+}
+
+.confirmation__heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.confirmation__message {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.confirmation__details {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.confirmation__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.confirmation__row:last-child {
+  border-bottom: none;
+}
+
+.confirmation__key {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.confirmation__value {
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* UX-Schwäche: Rücknavigation ist nur ein Link, kein deutlicher Button */
+.confirmation__back {
+  font-size: 13px;
+}
+
+.confirmation__back a {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
